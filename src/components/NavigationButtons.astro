@@ -23,6 +23,10 @@ const links = [
         href: "/contact",
     },
 ];
+
+const pathname = Astro.url.pathname.endsWith("/")
+    ? Astro.url.pathname.slice(0, -1)
+    : Astro.url.pathname;
 ---
 
 {Astro.url.pathname}
@@ -32,7 +36,7 @@ const links = [
             <li>
                 <a
                     href={link.href}
-                    class={Astro.url.pathname == link.href ? "active" : ""}
+                    class={pathname == link.href ? "active" : ""}
                 >
                     <div>
                         <Icon name={link.icon} />
