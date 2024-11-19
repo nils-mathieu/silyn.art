@@ -5,6 +5,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://silyn.art',
   integrations: [icon({
     iconDir: "src/assets/icons"
   })]
