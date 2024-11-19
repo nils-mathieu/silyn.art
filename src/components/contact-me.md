@@ -1,4 +1,4 @@
-The most reliable way to get in touch with me a start a conversation is to send me an e-mail at
+The most reliable way to get in touch with me and start a conversation is to send me an e-mail at
 [hello@silyn.art](mailto:hello@silyn.art).
 
 Otherwise, my DMs are open on [Bluesky](https://bsky.app/profile/silyn.art) and
