@@ -1,0 +1,84 @@
+---
+import "@fontsource/exo-2";
+import "@fontsource/nova-square";
+import BaseHead from "@layouts/BaseHead.astro";
+import { Image } from "astro:assets";
+import image from "@content/tracks/fm-172.png";
+---
+
+<BaseHead>
+    <div class="image-container">
+        <Image src={image} width="1000" alt="FM 172 Cover Art" />
+    </div>
+
+    <div class="screen">
+        <main>
+            <h2>Page not found</h2>
+            <p>Don't worry, I can walk you back <a href="/">home</a>!</p>
+        </main>
+    </div>
+</BaseHead>
+
+<style>
+    .screen {
+        height: 100lvh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .image-container {
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color-black);
+        border-radius: 1000000px;
+    }
+
+    img {
+        border-radius: 1000000px;
+        border: 8px solid var(--color-white);
+        opacity: 10%;
+        animation: rotation 120s linear infinite reverse;
+    }
+
+    main {
+        padding: 32px;
+        background-color: var(--color-white);
+        color: var(--color-black);
+        width: 100%;
+        max-width: 800px;
+        border-radius: 16px;
+        margin: auto auto;
+        text-align: center;
+    }
+
+    a {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.666rem;
+    }
+</style>

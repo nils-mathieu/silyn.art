@@ -24,12 +24,12 @@ const links = [
     },
 ];
 
-const pathname = Astro.url.pathname.endsWith("/")
-    ? Astro.url.pathname.slice(0, -1)
-    : Astro.url.pathname;
+const pathname =
+    Astro.url.pathname !== "/" && Astro.url.pathname.endsWith("/")
+        ? Astro.url.pathname.slice(0, -1)
+        : Astro.url.pathname;
 ---
 
-{Astro.url.pathname}
 <ul>
     {
         links.map((link) => (
