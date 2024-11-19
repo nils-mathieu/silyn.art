@@ -1,6 +1,7 @@
 ---
 import "@styles/reset.css";
 import "@styles/constants.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
 ---
 
 <html lang="en">
@@ -15,6 +16,7 @@ import "@styles/constants.css";
         <title>Silyn</title>
     </head>
     <body>
+        <SpeedInsights />
         <slot />
     </body>
 </html>
