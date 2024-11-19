@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+interface Props {
+    release: CollectionEntry<"releases">;
+}
+
+const { release } = Astro.props;
+
+const tracks: CollectionEntry<"tracks">[] = [];
+for (const track of release.data.tracks) {
+    tracks.push(await getEntry("tracks", track.slug));
+}
+
+function areArtistsRedundant(track: CollectionEntry<"tracks">): boolean {
+    return track.data.artists.every((a) => release.data.artists.includes(a));
+}
+
+function formatTrackDuration(duration: number): string {
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+---
+
+<table>
+    <tbody>
+        {
+            tracks.map((track, index) => (
+                <tr onclick={`location.href = '/listen/${track.slug}'`}>
+                    <td class="track-number">{index + 1}.</td>
+                    <td class="track-title">
+                        <h3>{track.data.title}</h3>
+                        {!areArtistsRedundant(track) && (
+                            <p class="artists">
+                                {track.data.artists.join(", ")}
+                            </p>
+                        )}
+                    </td>
+                    <td class="track-duration">
+                        {formatTrackDuration(track.data.duration)}
+                    </td>
+                </tr>
+            ))
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        margin: 2rem 0;
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1.2rem;
+    }
+
+    table tr {
+        border-top: 1px solid rgba(var(--color-black-rgb), 0.5);
+        border-bottom: 1px solid rgba(var(--color-black-rgb), 0.5);
+        padding: 1rem;
+        height: 3rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    table tr:hover {
+        background-color: rgba(var(--color-black-rgb), 0.05);
+    }
+
+    .track-number {
+        width: 4rem;
+        text-align: right;
+        padding-right: 1rem;
+    }
+
+    .track-duration {
+        width: 4rem;
+    }
+
+    h3 {
+        font-family: var(--font-text);
+        font-weight: normal;
+        line-height: 0.8em;
+    }
+
+    .artists {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+</style>

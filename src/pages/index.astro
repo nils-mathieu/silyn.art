@@ -1,0 +1,117 @@
+---
+import TrackBox from "@components/TrackBox.astro";
+import BaseHead from "@layouts/BaseHead.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import { getCollection } from "astro:content";
+
+const tracks = await getCollection("tracks");
+tracks.sort(
+    (a, b) => b.data.releaseDate.getTime() - a.data.releaseDate.getTime(),
+);
+---
+
+<BaseHead>
+    <HomeLayout>
+        <div class="discography-track-list">
+            {tracks.map((track) => <TrackBox track={track} />)}
+        </div>
+    </HomeLayout>
+</BaseHead>
+
+<style>
+    .discography-track-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+        padding: 32px;
+    }
+</style>
+
+<script>
+    const trackGrid = document.querySelector(
+        ".discography-track-list",
+    ) as HTMLElement;
+    const trackList = trackGrid.children;
+
+    function updateColumnCount() {
+        const firstElem = trackList[0] as HTMLElement;
+        const columnCount = Math.floor(
+            trackGrid.offsetWidth / firstElem.offsetWidth,
+        );
+
+        let i: number = 0;
+        for (const child of trackList) {
+            const index: number = i;
+            const x = index % columnCount;
+            const y = Math.floor(index / columnCount);
+
+            (child as HTMLElement).onmouseover = () => {
+                for (const child of trackList) {
+                    (child as HTMLElement).style.transform = "";
+                }
+
+                for (let dx = -2; dx <= 2; dx++) {
+                    for (let dy = -2; dy <= 2; dy++) {
+                        const di = index + dx + dy * columnCount;
+
+                        if (x + dx < 0 || x + dx >= columnCount) {
+                            continue;
+                        }
+                        if (
+                            y + dy < 0 ||
+                            x + dx + (y + dy) * columnCount >= trackList.length
+                        ) {
+                            continue;
+                        }
+
+                        let height = 0;
+                        if (dx === 0 && dy === 0) {
+                            height = 55;
+                        } else if (
+                            (Math.abs(dx) === 1 && Math.abs(dy) <= 1) ||
+                            (Math.abs(dy) === 1 && Math.abs(dx) <= 1)
+                        ) {
+                            height = 35;
+                        } else {
+                            height = 0;
+                        }
+
+                        let rotateX = 0;
+                        if (Math.abs(dy) === 1) {
+                            rotateX = -Math.sign(dy) * 10;
+                        } else if (Math.abs(dy) === 2) {
+                            rotateX = -Math.sign(dy) * 3;
+                        } else {
+                            rotateX = 0;
+                        }
+
+                        let rotateY = 0;
+                        if (Math.abs(dx) === 1) {
+                            rotateY = Math.sign(dx) * 10;
+                        } else if (Math.abs(dx) === 2) {
+                            rotateY = Math.sign(dx) * 5;
+                        } else {
+                            rotateY = 0;
+                        }
+
+                        if (height !== 0 || rotateX !== 0 || rotateY !== 0) {
+                            (trackList[di] as HTMLElement).style.transform =
+                                `perspective(1250px) translate3d(0, 0, ${height}px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+                        }
+                    }
+                }
+            };
+
+            (child as HTMLElement).onmouseout = () => {
+                for (const child of trackList) {
+                    (child as HTMLElement).style.transform = "";
+                }
+            };
+
+            i++;
+        }
+    }
+
+    window.addEventListener("resize", updateColumnCount);
+    updateColumnCount();
+</script>

@@ -1,0 +1,136 @@
+---
+import BaseHead from "./BaseHead.astro";
+import LeftPanel from "@components/LeftPanel.astro";
+import NavigationButtons from "@components/NavigationButtons.astro";
+import "@fontsource/exo-2";
+import "@fontsource/kumar-one";
+import "@fontsource/nova-square";
+---
+
+<BaseHead>
+    <div class="screen">
+        <div class="container">
+            <LeftPanel />
+
+            <div class="content">
+                <nav><NavigationButtons /></nav>
+                <main><slot /></main>
+            </div>
+        </div>
+    </div>
+
+    <footer>Made with care by Silyn.</footer>
+</BaseHead>
+
+<style>
+    .screen {
+        width: 100%;
+        height: 100lvh;
+        padding: 200px 64px 64px 64px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 500px 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "left content";
+        gap: 32px;
+        height: 100%;
+    }
+
+    .content {
+        grid-area: content;
+        position: relative;
+        height: 100%;
+    }
+
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%);
+        padding: 0 64px;
+    }
+
+    main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background: var(--color-white);
+        color: var(--color-black);
+        border-radius: 16px;
+
+        overflow: hidden scroll;
+    }
+
+    main::-webkit-scrollbar {
+        width: 16px;
+    }
+
+    main::-webkit-scrollbar-track {
+        background-image: var(--pattern-strips-primary);
+        background-color: var(--color-primary);
+        border-radius: 0 16px 16px 0;
+    }
+
+    main::-webkit-scrollbar-thumb {
+        background-color: rgba(var(--color-black-rgb), 0.5);
+    }
+
+    footer {
+        position: absolute;
+        bottom: 1em;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    @media screen and (max-width: 1480px) {
+        .screen {
+            padding: 150px 0 64px 0;
+            height: auto;
+        }
+
+        .container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas: "left" "content";
+            row-gap: 64px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        main {
+            overflow: auto;
+            height: auto;
+        }
+
+        footer {
+            display: block;
+            position: static;
+            transform: none;
+            text-align: center;
+            height: 64px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        main {
+            border-radius: 0;
+            position: static;
+        }
+
+        nav {
+            position: static;
+            transform: none;
+            padding: 0;
+            z-index: 1;
+        }
+    }
+</style>

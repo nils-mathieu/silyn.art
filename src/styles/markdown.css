@@ -1,0 +1,34 @@
+.in-markdown {
+    font-size: 1.2rem;
+    line-height: 1.5em;
+}
+
+.in-markdown p {
+    margin: 0.8em 0;
+}
+
+.in-markdown p:first-child {
+    margin-top: 0;
+}
+
+.in-markdown a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.in-markdown a:hover {
+    text-decoration: underline;
+}
+
+.in-markdown img {
+    margin: 0 auto;
+}
+
+.in-markdown h1 {
+    text-align: center;
+    margin: 1em;
+}
+
+.in-markdown h2 {
+    margin: 1em 0 0.5em;
+}

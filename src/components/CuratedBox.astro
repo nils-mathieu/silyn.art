@@ -1,0 +1,70 @@
+---
+import "@styles/markdown.css";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { string } from "astro:schema";
+import CuratedLinks from "./CuratedLinks.astro";
+
+interface Props {
+    curated: CollectionEntry<"curated">;
+}
+
+const { curated } = Astro.props;
+const { Content } = await curated.render();
+---
+
+<article>
+    <div
+        class="profile-picture"
+        style={Math.random() < 0.5
+            ? "float: left; margin-right: 16px"
+            : "float: right; margin-left: 16px"}
+    >
+        <Image
+            src={curated.data.profilePicture}
+            alt={curated.data.artist}
+            width="300"
+        />
+        <h2 class="artist-name">{curated.data.artist}</h2>
+        <CuratedLinks max={6} links={curated.data.links} />
+    </div>
+    <div class="in-markdown">
+        <Content />
+    </div>
+</article>
+
+<style>
+    article {
+        display: inline-block;
+        margin: 0 16px 32px 16px;
+    }
+
+    .profile-picture {
+        width: 300px;
+        aspect-ratio: 1;
+        height: auto;
+        position: relative;
+        border-radius: 16px 16px 16px 16px;
+    }
+
+    .profile-picture h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(var(--color-black-rgb), 0.5);
+        color: var(--color-white);
+        padding: 8px 0;
+        border-radius: 16px 16px 0 0;
+        backdrop-filter: blur(4px);
+    }
+
+    .profile-picture img {
+        border-radius: 16px 16px 0 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+</style>

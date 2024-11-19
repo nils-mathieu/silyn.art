@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import CuratedLinks from "./CuratedLinks.astro";
+
+interface Props {
+    curated: CollectionEntry<"curated">;
+}
+
+const { curated } = Astro.props;
+---
+
+<article>
+    <Image
+        src={curated.data.profilePicture}
+        alt={curated.data.artist}
+        width="200"
+    />
+
+    <h2>{curated.data.artist}</h2>
+
+    <CuratedLinks max={4} links={curated.data.links} />
+</article>
+
+<style>
+    article {
+        display: inline-block;
+        position: relative;
+    }
+
+    img {
+        border-radius: 16px;
+    }
+
+    h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(var(--color-black-rgb), 0.8);
+        backdrop-filter: blur(4px);
+        border-radius: 16px 16px 0 0;
+        color: var(--color-white);
+        text-align: center;
+        word-break: keep-all;
+        overflow: hidden;
+        padding: 8px 0;
+    }
+</style>

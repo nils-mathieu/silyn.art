@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon/components";
+import { logoToColor } from "@lib/utils";
+
+interface Props {
+    max: number;
+    links: Record<string, string>;
+}
+
+const { max, links } = Astro.props;
+
+const socials = [
+    {
+        name: "Website",
+        key: "website",
+        icon: "globe",
+    },
+    {
+        name: "Bandcamp",
+        key: "bandcamp",
+        icon: "bandcamp",
+    },
+    {
+        name: "Patreon",
+        key: "patreon",
+        icon: "patreon",
+    },
+    {
+        name: "Spotify",
+        key: "spotify",
+        icon: "spotify",
+    },
+    {
+        name: "Bluesky",
+        key: "bluesky",
+        icon: "bluesky",
+    },
+    {
+        name: "YouTube",
+        key: "youtube",
+        icon: "youtube",
+    },
+    {
+        name: "Twitter",
+        key: "twitter",
+        icon: "twitter",
+    },
+];
+---
+
+<ul>
+    {
+        socials
+            .filter((s) => !!links[s.key])
+            .slice(0, max)
+            .map((s) => (
+                <li>
+                    <a
+                        href={links[s.key]}
+                        aria-label={s.name}
+                        style={`--label-hover-color: ${logoToColor(s.icon)}`}
+                    >
+                        <Icon name={s.icon} />
+                    </a>
+                </li>
+            ))
+    }
+</ul>
+
+<style>
+    ul {
+        border: none;
+        background-color: var(--color-primary);
+        background-image: var(--pattern-strips-primary);
+        width: 100%;
+        border-radius: 0 0 16px 16px;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        gap: 16px;
+        padding: 8px 0;
+        font-size: 24px;
+    }
+
+    a {
+        transition: color 0.2s;
+    }
+
+    a:hover {
+        color: var(--label-hover-color);
+    }
+</style>
