@@ -49,14 +49,21 @@ const coverImage = og_image
         <title>{title}</title>
 
         <!-- Open Graph & Socials -->
+        <meta property="twitter:title" content={og_title || title} />
         <meta property="og:title" content={og_title || title} />
-        <meta property="description" content={description || ""} />
+        <meta
+            property="twitter:description"
+            ,
+            content={og_description || description || ""}
+        />
         <meta
             property="og:description"
             content={og_description || description || ""}
         />
+        <meta property="description" content={description || ""} />
         {
             coverImage ? (
+                <meta property="twitter:image" content={coverImage.src}>
                 <meta property="og:image" content={coverImage.src} />
             ) : null
         }

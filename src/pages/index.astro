@@ -3,7 +3,7 @@ import TrackBox from "@components/TrackBox.astro";
 import BaseHead from "@layouts/BaseHead.astro";
 import HomeLayout from "@layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
-import coverImage from "@content/tracks/fm-172.png";
+import coverImage from "@assets/open_graph_cover.png";
 
 const tracks = await getCollection("tracks");
 tracks.sort(
