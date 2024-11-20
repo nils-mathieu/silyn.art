@@ -33,12 +33,9 @@ const pathname =
 <ul>
     {
         links.map((link) => (
-            <li>
-                <a
-                    href={link.href}
-                    class={pathname == link.href ? "active" : ""}
-                >
-                    <div>
+            <li class={pathname == link.href ? "active" : ""}>
+                <a href={link.href}>
+                    <div class="text">
                         <Icon name={link.icon} />
                         {link.title}
                     </div>
@@ -63,11 +60,11 @@ const pathname =
         text-decoration: none;
     }
 
-    a.active {
+    li.active a {
         pointer-events: none;
     }
 
-    a div {
+    .text {
         background-color: var(--color-white);
         color: var(--color-black);
         border-radius: 8px 8px 0 0;
@@ -95,7 +92,7 @@ const pathname =
         }
     }
 
-    a.active div {
+    li.active .text {
         background-color: var(--color-primary);
         background-image: var(--pattern-strips-primary);
         animation: 8s linear infinite scroll-background;
@@ -139,6 +136,11 @@ const pathname =
 
         li:not(:first-child) a div {
             border-radius: 0;
+        }
+
+        li:has(+ .active) hr,
+        li + .active hr {
+            display: none;
         }
     }
 </style>
