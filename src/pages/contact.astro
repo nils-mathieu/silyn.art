@@ -3,9 +3,16 @@ import "@styles/markdown.css";
 import Content from "@components/contact-me.md";
 import BaseHead from "@layouts/BaseHead.astro";
 import HomeLayout from "@layouts/HomeLayout.astro";
+import type { Props as BaseHeadProps } from "@layouts/BaseHead.astro";
+import coverImage from "@content/tracks/fm-172.png";
 ---
 
-<BaseHead>
+<BaseHead
+    title="Silyn - Contact Form"
+    og_title="Silyn's Contact Form"
+    og_description="If you wish to contact me, here is how you can do it."
+    og_image={coverImage}
+>
     <HomeLayout>
         <div class="in-markdown">
             <Content />

@@ -3,6 +3,33 @@ import "@styles/reset.css";
 import "@styles/constants.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
+import { getImage } from "astro:assets";
+
+export interface Props {
+    /** The title of the page. */
+    title: string;
+
+    /**
+     * The title of the page, as specified in the Open Graph metadata. If not specified, the page
+     * title is used.
+     */
+    og_title?: string;
+
+    /**
+     * The description of the page, as specified in the Open Graph metadata. If not specified, the
+     * page description is used.
+     */
+    og_description?: string;
+
+    /**
+     * The image that should be displayed when the page is shared on social media. If not specified,
+     * no image is displayed.
+     */
+    og_image?: ImageMetadata;
+}
+
+const { title, og_title, og_description, og_image } = Astro.props;
+const cover = og_image ? await getImage({ src: og_image, width: 1200 }) : null;
 ---
 
 <html lang="en">
@@ -14,7 +41,18 @@ import Analytics from "@vercel/analytics/astro";
 
         <!-- Page identity. -->
         <link rel="icon" type="image/png" href="/.static/favicon.png" />
-        <title>Silyn</title>
+        <title>{title}</title>
+
+        <!-- Open Graph & Socials -->
+        <meta property="og:title" content={og_title || title} />
+        <meta property="og:description" content={og_description || ""} />
+        {cover ? <meta property="og:image" content={cover.src} /> : null}
+        <meta property="og:site_name" , content={Astro.site} />
+        <meta property="og:url" content={Astro.url} />
+        <meta
+            property="twitter:card"
+            content={og_image ? "summary_large_image" : "summary"}
+        />
     </head>
     <body>
         <SpeedInsights />

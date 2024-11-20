@@ -3,6 +3,7 @@ import TrackBox from "@components/TrackBox.astro";
 import BaseHead from "@layouts/BaseHead.astro";
 import HomeLayout from "@layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
+import coverImage from "@content/tracks/fm-172.png";
 
 const tracks = await getCollection("tracks");
 tracks.sort(
@@ -10,7 +11,12 @@ tracks.sort(
 );
 ---
 
-<BaseHead>
+<BaseHead
+    title="Silyn - Discography"
+    og_title="Silyn's Discography"
+    og_description="Listen to my music!"
+    og_image={coverImage}
+>
     <HomeLayout>
         <div class="discography-track-list">
             {tracks.map((track) => <TrackBox track={track} />)}

@@ -7,20 +7,18 @@ import "@fontsource/kumar-one";
 import "@fontsource/nova-square";
 ---
 
-<BaseHead>
-    <div class="screen">
-        <div class="container">
-            <LeftPanel />
+<div class="screen">
+    <div class="container">
+        <LeftPanel />
 
-            <div class="content">
-                <nav><NavigationButtons /></nav>
-                <main><slot /></main>
-            </div>
+        <div class="content">
+            <nav><NavigationButtons /></nav>
+            <main><slot /></main>
         </div>
     </div>
+</div>
 
-    <footer>Made with care by Silyn.</footer>
-</BaseHead>
+<footer>Made with care by Silyn.</footer>
 
 <style>
     .screen {

@@ -3,9 +3,19 @@ import "@styles/markdown.css";
 import BaseHead from "@layouts/BaseHead.astro";
 import HomeLayout from "@layouts/HomeLayout.astro";
 import Content from "@components/silyn-public-license.md";
+import coverImage from "@content/tracks/fm-172.png";
+
+const DESCRIPTION: string =
+    "Read Silyn's public derivative works policy. If you want to use Silyn's music in your own projects, this is the license you need to follow.";
 ---
 
-<BaseHead>
+<BaseHead
+    title="Silyn - Public License"
+    og_title="Silyn's Public License"
+    og_description={DESCRIPTION}
+    ,
+    og_image={coverImage}
+>
     <HomeLayout>
         <div class="in-markdown">
             <Content />
