@@ -59,7 +59,7 @@ const hasContent = (track && track.body.trim() !== "") || (release && release.bo
 const nothingUnderHeader = !hasContent && (release || (track && !track.data.links.youtube))
 ---
 
-<BaseHead title={`Silyn - ${title}`} og_title={`Listen to ${title}!`} og_image={coverImage}>
+<BaseHead title={`Silyn - ${title}`} og_title={`Listen to ${title}!`} description={`Listen to ${title}!`} og_image={coverImage}>
     <main>
         <header style={nothingUnderHeader ? 'border-bottom-right-radius: 16px; border-bottom-left-radius: 16px' : ''}>
             <div class="cover-image">

@@ -9,6 +9,9 @@ export interface Props {
     /** The title of the page. */
     title: string;
 
+    /** A one to two sentences description of the website. Used by search engines. */
+    description?: string;
+
     /**
      * The title of the page, as specified in the Open Graph metadata. If not specified, the page
      * title is used.
@@ -28,8 +31,10 @@ export interface Props {
     og_image?: ImageMetadata;
 }
 
-const { title, og_title, og_description, og_image } = Astro.props;
-const cover = og_image ? await getImage({ src: og_image, width: 1200 }) : null;
+const { title, description, og_title, og_description, og_image } = Astro.props;
+const coverImage = og_image
+    ? await getImage({ src: og_image, width: 1200 })
+    : null;
 ---
 
 <html lang="en">
@@ -45,8 +50,16 @@ const cover = og_image ? await getImage({ src: og_image, width: 1200 }) : null;
 
         <!-- Open Graph & Socials -->
         <meta property="og:title" content={og_title || title} />
-        <meta property="og:description" content={og_description || ""} />
-        {cover ? <meta property="og:image" content={cover.src} /> : null}
+        <meta property="description" content={description || ""} />
+        <meta
+            property="og:description"
+            content={og_description || description || ""}
+        />
+        {
+            coverImage ? (
+                <meta property="og:image" content={coverImage.src} />
+            ) : null
+        }
         <meta property="og:site_name" , content={Astro.site} />
         <meta property="og:url" content={Astro.url} />
         <meta

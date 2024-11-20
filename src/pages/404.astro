@@ -3,16 +3,19 @@ import "@fontsource/exo-2";
 import "@fontsource/nova-square";
 import BaseHead from "@layouts/BaseHead.astro";
 import { Image } from "astro:assets";
-import image from "@content/tracks/fm-172.png";
+import bgImage from "@content/tracks/fm-172.png";
+import coverImage from "@assets/open_graph_cover.png";
 ---
 
 <BaseHead
     title="Silyn - Page Not Found"
     ,
+    description="This page does not exist."
     og_title="Oupsyyyyyyy! Seems like this page does not exist."
+    og_image={coverImage}
 >
     <div class="image-container">
-        <Image src={image} width="1000" alt="FM 172 Cover Art" />
+        <Image src={bgImage} width="1000" alt="FM 172 Cover Art" />
     </div>
 
     <div class="screen">

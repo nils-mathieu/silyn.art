@@ -4,7 +4,7 @@ import HonorableMention from "@components/HonorableMention.astro";
 import BaseHead from "@layouts/BaseHead.astro";
 import HomeLayout from "@layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
-import coverImage from "@content/tracks/fm-172.png";
+import coverImage from "@assets/open_graph_cover.png";
 
 function shuffle<T>(array: T[]) {
     let currentIndex = array.length;
@@ -32,6 +32,7 @@ const honorableMentions = curatedList.filter((c) => c.body.trim() === "");
 
 <BaseHead
     title="Silyn - Curated Artists"
+    description="A list of artists that Silyn listens to on a regular basis."
     og_title="Silyn's Curated Artists"
     og_description="A short list of the artists that I listen to on a regular basis. Think of it as me fanboying over the people I look up to x)"
     og_image={coverImage}
