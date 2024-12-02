@@ -8,4 +8,5 @@ links:
   spotify: https://open.spotify.com/intl-fr/artist/5tXUIbGjW1uqXoy8cPW8MB?si=sJqTqKY3QlW0_YGKG6IvQg
   twitter: https://x.com/meganekomusic
   bluesky: https://bsky.app/profile/meganeko.com
+  instagram: https://www.instagram.com/meganekomusic
 ---

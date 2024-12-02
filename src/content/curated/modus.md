@@ -6,4 +6,5 @@ links:
   website: https://www.iammod.us/
   youtube: https://www.youtube.com/iammodus
   twitter: https://x.com/iammodus
+  instagram: https://www.instagram.com/iammodus/
 ---

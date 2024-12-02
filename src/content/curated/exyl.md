@@ -6,6 +6,8 @@ links:
   spotify: https://open.spotify.com/intl-fr/artist/5eYIGMKb2BdsIXbScrOPK2?si=u60c-OHFRymaOuYzUQgdhA
   twitter: https://x.com/exyl_sounds/media
   website: https://exylsounds.com/en-eur/
+  instagram: https://www.instagram.com/exyl_sounds/
+  soundcloud: https://soundcloud.com/exyl_sounds
 ---
 
 I remember discovering Exyl the day he released his first [Ping!](https://www.youtube.com/watch?v=RKW6rjnYEkc),

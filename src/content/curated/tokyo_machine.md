@@ -6,4 +6,5 @@ links:
   twitter: https://x.com/TOKYOMACHINE
   youtube: https://youtube.com/@tokyomachine
   spotify: https://open.spotify.com/artist/3bwENxqj9nhaAI3fsAwmv9?si=cl5dJgXNTumCFunxZ-UiFg
+  instagram: https://www.instagram.com/tokyomachine
 ---

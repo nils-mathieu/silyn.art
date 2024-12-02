@@ -8,6 +8,8 @@ links:
   bandcamp: https://cametek.bandcamp.com/
   spotify: https://open.spotify.com/intl-fr/artist/4bwIf0yXJf0F9AmOl2J78M?si=xsAUjla7TSOjIEgTYJUIHA
   youtube: https://www.youtube.com/@Cametek.CamelliaOfficial/featured
+  instagram: https://www.instagram.com/cametek_/
+  soundcloud: https://soundcloud.com/cametek
 ---
 
 Camellia is, if I remember correctly, the first big realization I had in music. It was the first

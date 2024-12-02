@@ -7,4 +7,5 @@ links:
   bluesky: https://bsky.app/profile/
   website: https://invertedsilence.com
   youtube: https://www.youtube.com/@KlareAudio
+  instagram: https://www.instagram.com/invertedsilence/
 ---

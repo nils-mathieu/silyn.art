@@ -8,6 +8,8 @@ links:
   bandcamp: https://glacierofficial.bandcamp.com/
   twitter: https://twitter.com/GlacierTunes
   patreon: https://www.patreon.com/glacierofficial
+  instagram: https://www.instagram.com/glacierofficial
+  soundcloud: https://soundcloud.com/glacierofficial
 ---
 
 I remember discovering Glacier while autoplaying Monstercat releases on YouTube. I was immediately
@@ -24,5 +26,3 @@ I definitely still reference [a](https://youtu.be/YEvRz7Pw8aI) [lot](https://you
 [tracks](https://youtu.be/qcE__zJ4L6E?list=OLAK5uy_lUBbRb5_EJL3w4BGUuP_Bj9CYcxXI8Y1I) when I write
 my own music, and I'm more generally coming back to his music regularly. I literally cannot get
 tired of it. And god knows how fast I can get bored of the music I listen to too often.
-
-

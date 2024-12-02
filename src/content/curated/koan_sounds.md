@@ -8,6 +8,7 @@ links:
   patreon: https://www.patreon.com/koansound
   twitter: https://x.com/koansound
   spotify: https://open.spotify.com/intl-fr/artist/1NCLweIUpq8knzemBwAwoo?si=6vDZcXq9QV-nUZg03AwCDA
+  instagram: https://www.instagram.com/koansound/
 ---
 
 These absolute mad-lads of sound design are always back where I least expect them with even crazier

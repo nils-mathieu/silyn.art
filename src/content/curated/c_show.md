@@ -6,4 +6,6 @@ links:
   twitter: https://x.com/c_show_dtmer
   bandcamp: https://c-show.bandcamp.com/
   youtube: https://www.youtube.com/@CShowdtmer
+  instagram: https://www.instagram.com/c_show_dtmer/
+  soundcloud: https://soundcloud.com/c_show
 ---
