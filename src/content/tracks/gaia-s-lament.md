@@ -16,6 +16,14 @@ links:
 ---
 
 I wrote this song with my friend [ImNotRakan](https://rakan.bio.link/) for FORM's [All Nighter
-volume 9](https://artbyform.bandcamp.com/album/all-nighter-vol-9).
+volume 9](https://artbyform.bandcamp.com/album/all-nighter-vol-9). The challenge allowed 24
+hours to make the song, but I think we only used something like 9. We hadn't that much time that
+day anyway. Please check out the other submissions, there are some really cool tracks in there. I
+discovered [a](https://open.spotify.com/artist/15VwPcYKIWA2edqXDloxRf?si=aQ1180YCTu-wsBqlFPBI4Q)
+[bunch](https://open.spotify.com/artist/47GNF7Kf5NvKu7diVeHmCh?si=1SEB3UCiS7CgJD9Skx93Ig)
+[of](https://open.spotify.com/artist/3CxTzmCYdzsMwT5VuJrSf8?si=ZrP9szrtRl-re-qmyfWZiA)
+[new](https://open.spotify.com/artist/1WqKPRIyc3iLqATQR0DGYc?si=-DjGCInHS6SavJwO8yybKA)
+[artists](https://open.spotify.com/artist/5yyqKaR2sQiuMm2gC83f31?si=I02QJ37MR86gT7R_BgVGzg)
+I hadn't heard of before.
 
 We sadly did not get selected but we had a lot of fun making this track. I hope you enjoy it!
