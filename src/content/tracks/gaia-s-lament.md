@@ -22,7 +22,7 @@ day anyway. Please check out the other submissions, there are some really cool t
 discovered [a](https://open.spotify.com/artist/15VwPcYKIWA2edqXDloxRf?si=aQ1180YCTu-wsBqlFPBI4Q)
 [bunch](https://open.spotify.com/artist/47GNF7Kf5NvKu7diVeHmCh?si=1SEB3UCiS7CgJD9Skx93Ig)
 [of](https://open.spotify.com/artist/3CxTzmCYdzsMwT5VuJrSf8?si=ZrP9szrtRl-re-qmyfWZiA)
-[new](https://open.spotify.com/artist/1WqKPRIyc3iLqATQR0DGYc?si=-DjGCInHS6SavJwO8yybKA)
+[new](https://open.spotify.com/artist/1N1AFyIEAhTIpyY2Qb8l9J?si=Lexy35IrSOWYqXPjM-sjTw)
 [artists](https://open.spotify.com/artist/5yyqKaR2sQiuMm2gC83f31?si=I02QJ37MR86gT7R_BgVGzg)
 I hadn't heard of before.
 
