@@ -4,7 +4,7 @@ artists:
 - Silyn
 releaseDate: 2024-12-30
 license: Silyn Public License
-coverImage: ../releases/yet-another-world.jpg
+coverImage: ../releases/yet-another-world.png
 duration: 295
 release: yet-another-world
 links:
