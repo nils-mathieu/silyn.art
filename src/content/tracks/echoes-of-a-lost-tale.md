@@ -2,10 +2,10 @@
 title: Echoes of a Lost Tale
 artists:
 - Silyn
-releaseDate: 2024-12-30
+releaseDate: 2024-12-30 00:00:08
 license: Silyn Public License
 coverImage: ../releases/yet-another-world.png
-duration: 183
+duration: 209
 release: yet-another-world
 links:
   bandcamp: https://silyn.bandcamp.com/track/echoes-of-a-lost-tale

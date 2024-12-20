@@ -2,7 +2,7 @@
 title: Wonders of the Forest
 artists:
 - Silyn
-releaseDate: 2024-12-30
+releaseDate: 2024-12-30 00:00:00
 license: Silyn Public License
 coverImage: ../releases/yet-another-world.png
 duration: 223

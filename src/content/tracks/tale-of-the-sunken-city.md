@@ -2,7 +2,7 @@
 title: Tale of the Sunken City
 artists:
 - Silyn
-releaseDate: 2024-12-30
+releaseDate: 2024-12-30 00:00:06
 license: Silyn Public License
 coverImage: ../releases/yet-another-world.png
 duration: 295
