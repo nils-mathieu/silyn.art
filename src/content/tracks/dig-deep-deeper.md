@@ -11,4 +11,5 @@ links:
   bandcamp: https://silyn.bandcamp.com/track/dig-deep-deeper
   youtube: https://www.youtube.com/watch?v=O3wjTY2wx18
   soundcloud: https://soundcloud.com/silyn-music/deep-deep-deeper
+  newgrounds: https://www.newgrounds.com/audio/listen/1385308
 ---
