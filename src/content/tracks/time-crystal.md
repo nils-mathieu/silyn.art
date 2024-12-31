@@ -13,4 +13,5 @@ links:
   soundcloud: https://soundcloud.com/silyn-music/time-crystal
   deezer: https://deezer.page.link/kmTEMGL2q48UHoyk9
   spotify: https://open.spotify.com/intl-fr/track/7pOgexjwCQjjIOYDTCWHTW?si=23d2035205d24b06
+  appleMusic: https://music.apple.com/fr/album/time-crystal/1787443349?i=1787443360
 ---

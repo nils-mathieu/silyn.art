@@ -14,4 +14,5 @@ links:
   newgrounds: https://www.newgrounds.com/audio/listen/1384955
   deezer: https://deezer.page.link/eVdy4sjpHVKECgQi9
   spotify: https://open.spotify.com/intl-fr/track/2O7mJ5PxJzMco5V2G7WvXU?si=d9123590524049de
+  appleMusic: https://music.apple.com/fr/album/dragonheart-valley/1787443349?i=1787443354
 ---

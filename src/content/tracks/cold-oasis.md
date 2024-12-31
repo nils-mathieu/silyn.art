@@ -13,4 +13,5 @@ links:
   soundcloud: https://soundcloud.com/silyn-music/cold-oasis
   spotify: https://open.spotify.com/intl-fr/track/15YjFOJGsBxyNAl681sjut?si=bae1272132674955
   deezer: https://deezer.page.link/Qqro2PCwW6N9y7UH7
+  appleMusic: https://music.apple.com/fr/album/cold-oasis/1787443349?i=1787443361
 ---

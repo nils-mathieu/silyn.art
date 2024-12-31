@@ -19,4 +19,5 @@ links:
   soundcloud: https://soundcloud.com/silyn-music/sets/yet-another-world
   spotify: https://open.spotify.com/album/5kBuYUv3DBrOtEPA3I5n0v
   deezer: https://deezer.page.link/rWEXjX9Ganj7hemx9
+  appleMusic: https://music.apple.com/fr/album/yet-another-world/1787443349
 ---

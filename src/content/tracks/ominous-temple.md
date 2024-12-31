@@ -13,4 +13,5 @@ links:
   soundcloud: https://soundcloud.com/silyn-music/ominous-temple
   spotify: https://open.spotify.com/intl-fr/track/4LM21W7ElLQon6LpMga8C7?si=d98ff036c27e443e
   deezer: https://deezer.page.link/4gVarMGKk8YMKKB18
+  appleMusic: https://music.apple.com/fr/album/ominous-temple/1787443349?i=1787443366
 ---

@@ -14,4 +14,5 @@ links:
   newgrounds: https://www.newgrounds.com/audio/listen/1385308
   deezer: https://deezer.page.link/nN5kDGWBtLCJSgX48
   spotify: https://open.spotify.com/intl-fr/track/1q165WskfaUwsihfE6Euwe?si=d5c51133da3247b8
+  appleMusic: https://music.apple.com/fr/album/dig-deep-deeper/1787443349?i=1787443359
 ---
