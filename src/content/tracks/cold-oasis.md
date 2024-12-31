@@ -14,4 +14,6 @@ links:
   spotify: https://open.spotify.com/intl-fr/track/15YjFOJGsBxyNAl681sjut?si=bae1272132674955
   deezer: https://deezer.page.link/Qqro2PCwW6N9y7UH7
   appleMusic: https://music.apple.com/fr/album/cold-oasis/1787443349?i=1787443361
+  tidal: https://tidal.com/browse/track/408107092
+  amazonMusic: https://music.amazon.com/tracks/B0DRMBYYDH
 ---

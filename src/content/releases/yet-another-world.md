@@ -20,4 +20,6 @@ links:
   spotify: https://open.spotify.com/album/5kBuYUv3DBrOtEPA3I5n0v
   deezer: https://deezer.page.link/rWEXjX9Ganj7hemx9
   appleMusic: https://music.apple.com/fr/album/yet-another-world/1787443349
+  tidal: https://tidal.com/browse/album/408107087
+  amazonMusic: https://music.amazon.com/albums/B0DRLLHYY9
 ---

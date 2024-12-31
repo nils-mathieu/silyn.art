@@ -15,4 +15,6 @@ links:
   spotify: https://open.spotify.com/intl-fr/track/4RIB9a84XRkQix4dMFu7FZ?si=d99108af3385430a
   deezer: https://deezer.page.link/dn2pGwgThAGSqmQAA
   appleMusic: https://music.apple.com/fr/album/wonders-of-the-forest/1787443349?i=1787443351
+  tidal: https://tidal.com/browse/track/408107088
+  amazonMusic: https://music.amazon.com/tracks/B0DRMH8CTD
 ---
