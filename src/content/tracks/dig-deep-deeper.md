@@ -12,4 +12,6 @@ links:
   youtube: https://www.youtube.com/watch?v=O3wjTY2wx18
   soundcloud: https://soundcloud.com/silyn-music/deep-deep-deeper
   newgrounds: https://www.newgrounds.com/audio/listen/1385308
+  deezer: https://deezer.page.link/nN5kDGWBtLCJSgX48
+  spotify: https://open.spotify.com/intl-fr/track/1q165WskfaUwsihfE6Euwe?si=d5c51133da3247b8
 ---

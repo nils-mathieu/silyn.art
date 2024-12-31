@@ -11,4 +11,6 @@ links:
   bandcamp: https://silyn.bandcamp.com/track/cold-oasis
   youtube: https://www.youtube.com/watch?v=xiGdlm3JMq8&list=PL0EDaMe3LCwp5V4Fgo5cBlVTwQx95tpcG&index=5
   soundcloud: https://soundcloud.com/silyn-music/cold-oasis
+  spotify: https://open.spotify.com/intl-fr/track/15YjFOJGsBxyNAl681sjut?si=bae1272132674955
+  deezer: https://deezer.page.link/Qqro2PCwW6N9y7UH7
 ---

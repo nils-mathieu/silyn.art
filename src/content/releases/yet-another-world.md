@@ -17,4 +17,6 @@ links:
   bandcamp: https://silyn.bandcamp.com/album/yet-another-world
   youtube: https://www.youtube.com/playlist?list=PL0EDaMe3LCwp5V4Fgo5cBlVTwQx95tpcG
   soundcloud: https://soundcloud.com/silyn-music/sets/yet-another-world
+  spotify: https://open.spotify.com/album/5kBuYUv3DBrOtEPA3I5n0v
+  deezer: https://deezer.page.link/rWEXjX9Ganj7hemx9
 ---
