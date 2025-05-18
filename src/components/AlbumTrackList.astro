@@ -10,7 +10,9 @@ const { release } = Astro.props;
 
 const tracks: CollectionEntry<"tracks">[] = [];
 for (const track of release.data.tracks) {
-    tracks.push(await getEntry("tracks", track.slug));
+    const maybeTrack = await getEntry("tracks", track.id);
+    if (!maybeTrack) throw `Track ${track.id} not found`;
+    tracks.push(maybeTrack);
 }
 
 function areArtistsRedundant(track: CollectionEntry<"tracks">): boolean {

@@ -40,7 +40,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 function youtubeWatchLinkToEmbedLink(link: string): string {
     const url = new URL(link);
     const videoId = url.searchParams.get("v")!;
-    return `https://www.youtube-nocookie.com/embed/${videoId}`;
+    return `https://www.youtube.com/embed/${videoId}`;
 }
 
 const { track, release } = Astro.props;
@@ -50,11 +50,11 @@ const artists = track?.data?.artists || release?.data?.artists!;
 
 let associatedRelease: CollectionEntry<"releases"> | undefined;
 if (track?.data.release)
-    associatedRelease = await getEntry("releases", track.data.release.slug);
+    associatedRelease = await getEntry("releases", track.data.release.id);
 
 const renderContent = track?.render || release?.render!;
 const { Content } = await renderContent();
-const hasContent = (track && track.body.trim() !== "") || (release && release.body.trim() !== "");
+const hasContent = (track && track.body && track.body.trim() !== "") || (release && release.body && release.body.trim() !== "");
 
 const nothingUnderHeader = !hasContent && (release || (track && !track.data.links.youtube))
 ---
