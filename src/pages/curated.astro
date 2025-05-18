@@ -26,8 +26,8 @@ function shuffle<T>(array: T[]) {
 const curatedList = await getCollection("curated");
 shuffle(curatedList);
 
-const mainMentions = curatedList.filter((c) => !c.body || c.body.trim() !== "");
-const honorableMentions = curatedList.filter((c) => c.body && c.body.trim() === "");
+const mainMentions = curatedList.filter((c) => c.body && c.body.trim() !== "");
+const honorableMentions = curatedList.filter((c) => !c.body || c.body.trim() === "");
 ---
 
 <BaseHead
