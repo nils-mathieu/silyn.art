@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@fontsource/exo-2": "^5.2.5",
-    "@fontsource/kumar-one": "^5.2.5",
-    "@fontsource/nova-square": "^5.2.5",
+    "@fontsource/exo-2": "^5.2.7",
+    "@fontsource/kumar-one": "^5.2.6",
+    "@fontsource/nova-square": "^5.2.6",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.7.13",
+    "astro": "^5.13.7",
     "astro-icon": "^1.1.5",
-    "sharp": "^0.34.1",
-    "typescript": "^5.8.3"
+    "sharp": "^0.34.3",
+    "typescript": "^5.9.2"
   }
 }
