@@ -1,0 +1,30 @@
+---
+import "@styles/markdown.css";
+import BaseHead from "@layouts/BaseHead.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import Content from "@components/silyn-public-license.md";
+import coverImage from "@assets/open_graph_cover.jpg";
+---
+
+<BaseHead
+    title="Silyn - Public License"
+    description="Read Silyn's public derivative works policy. If you want to use Silyn's music in your own projects, this is the license you need to follow."
+    og_title="Silyn's Public License"
+    og_description="Read my public derivative works policy. If you want to use my music in your own projects, this is the license you need to follow."
+    ,
+    og_image={coverImage}
+>
+    <HomeLayout>
+        <div class="in-markdown">
+            <Content />
+        </div>
+    </HomeLayout>
+</BaseHead>
+
+<style>
+    .in-markdown {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 64px 32px 32px 32px;
+    }
+</style>

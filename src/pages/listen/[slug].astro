@@ -1,0 +1,320 @@
+---
+import "@fontsource/nova-square";
+import "@fontsource/exo-2";
+import "@styles/markdown.css";
+import BaseHead from "@layouts/BaseHead.astro";
+import type { GetStaticPathsResult } from "astro";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import TrackSocials from "@components/TrackSocials.astro";
+import AlbumTrackList from "@components/AlbumTrackList.astro";
+
+export type Props = {
+    track?: CollectionEntry<"tracks">;
+    release?: CollectionEntry<"releases">;
+};
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+    const ret: GetStaticPathsResult = [];
+
+    for (const track of await getCollection("tracks")) {
+        ret.push({
+            params: { slug: track.id },
+            props: { type: "track", track },
+        });
+    }
+
+    for (const release of await getCollection("releases")) {
+        ret.push({
+            params: { slug: release.id },
+            props: { type: "release", release },
+        });
+    }
+
+    return ret;
+}
+
+function youtubeWatchLinkToEmbedLink(link: string): string {
+    const url = new URL(link);
+    let videoId;
+    if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
+        videoId = url.searchParams.get("v")!;
+    } else if (url.hostname === 'youtu.be') {
+        videoId = url.pathname.slice(1);
+    } else {
+        return link;
+    }
+    return `https://www.youtube.com/embed/${videoId}`;
+}
+
+const { track, release } = Astro.props;
+const title = track?.data?.title || release?.data?.title!;
+const coverImage = track?.data?.coverImage || release?.data?.coverImage!;
+const artists = track?.data?.artists || release?.data?.artists!;
+
+let associatedRelease: CollectionEntry<"releases"> | undefined;
+if (track?.data.release)
+    associatedRelease = await getEntry("releases", track.data.release.id);
+
+const { Content } = await render((track || release)!);
+const hasContent = (track && track.body && track.body.trim() !== "") || (release && release.body && release.body.trim() !== "");
+
+const nothingUnderHeader = !hasContent && (release || (track && !track.data.links.youtube))
+---
+
+<BaseHead title={`Silyn - ${title}`} og_title={`Listen to ${title}!`} description={`Listen to ${title}!`} og_image={coverImage}>
+    <main>
+        <header style={nothingUnderHeader ? 'border-bottom-right-radius: 16px; border-bottom-left-radius: 16px' : ''}>
+            <div class="cover-image">
+                <Image loading="eager" src={coverImage} width="250" alt={`Cover Image of '${title}'`} />
+            </div>
+
+            {
+                associatedRelease ? (
+                    <div class="associated-release">
+                        Part of
+                        <a href={`/listen/${associatedRelease.id}`}>
+                            <Image
+                                src={associatedRelease.data.coverImage}
+                                alt={`Cover Art for '${associatedRelease!.data.title}'`}
+                                width="32"
+                            />
+
+                            {associatedRelease.data.title}
+                        </a>
+                    </div>
+                ) : null
+            }
+
+            <h2>{title}</h2>
+            <p class="artists">
+                by
+                {artists.join(", ")}
+            </p>
+
+
+            {
+                track ? (
+                    <div class="spacer"></div>
+                    <TrackSocials links={track.data.links} />
+                ) : null
+            }
+
+            {release ? (
+                <AlbumTrackList release={release} />
+                <TrackSocials links={release.data.links} />
+            ) : null}
+
+            {track && track.data.license === "Silyn Public License" ? (
+                <div class="license-available">
+                    <Icon name="certificate" />
+                </div>
+            ) : null}
+        </header>
+
+        {
+            track?.data.links.youtube ? (
+                <iframe
+                    class="youtube-video"
+                    src={youtubeWatchLinkToEmbedLink(track.data.links.youtube)}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    style={hasContent ? "" : "border-radius: 0 0 16px 16px"}
+                />
+            ) : null
+        }
+
+        {
+            hasContent ? (
+                <hr />
+                <article class="in-markdown">
+                    <h2>Notes</h2>
+                    <Content />
+                </article>
+            ) : null
+        }
+    </main>
+
+
+</BaseHead>
+
+<style>
+    main {
+        width: 100%;
+        max-width: 1000px;
+        margin: 10% auto 10% auto;
+    }
+
+    header {
+        padding: 32px 32px 32px 150px;
+        background-color: var(--color-white);
+        color: var(--color-black);
+        border-top-right-radius: 16px;
+        position: relative;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .spacer {
+        flex-grow: 1;
+    }
+
+    .cover-image {
+        position: absolute;
+        height: auto;
+        aspect-ratio: 1;
+        width: 250px;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, 0);
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(360deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+
+    .cover-image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100000px;
+        border: 8px solid var(--color-white);
+        animation: rotate 40s linear infinite;
+    }
+
+    .cover-image::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 25%;
+        height: 25%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color-black);
+        background-image: var(--pattern-strips-black);
+        border-radius: 100000px;
+        border: 4px solid var(--color-white);
+    }
+
+    h2 {
+        font-size: 3rem;
+        line-height: 1em;
+    }
+
+    .artists {
+        font-size: 1.4rem;
+    }
+
+    .associated-release {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+
+    .associated-release img {
+        border-radius: 10000px;
+        height: 1.25em;
+        aspect-ratio: 1;
+        width: auto;
+        margin: 0 0.25em 0 0.5em;
+        border: 2px solid var(--color-black);
+    }
+
+    .associated-release a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .associated-release a:hover {
+        text-decoration: underline;
+    }
+
+    .youtube-video {
+        width: 100%;
+        height: 500px;
+        border: none;
+        margin: 0;
+    }
+
+    hr {
+        border: none;
+        height: 16px;
+        background-color: var(--color-primary);
+        background-image: var(--pattern-strips-primary);
+    }
+
+    article {
+        padding: 32px;
+        background-color: var(--color-white);
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        color: var(--color-black);
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .license-available {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 2rem;
+        opacity: 0.5;
+        transition: opacity 0.2s;
+    }
+
+    .license-available:hover {
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 1300px) {
+        main {
+            margin: 300px auto 100px auto;
+        }
+
+        .cover-image {
+            transform: translate(-50%, -50%);
+            top: 0;
+            left: 50%;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 200px 32px 32px 32px;
+            border-top-left-radius: 16px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .youtube-video {
+            height: 300px;
+        }
+
+        .cover-image {
+            width: 100%;
+        }
+
+        .license-available {
+            display: none;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+</style>

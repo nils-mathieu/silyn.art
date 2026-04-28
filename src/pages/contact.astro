@@ -1,0 +1,29 @@
+---
+import "@styles/markdown.css";
+import Content from "@components/contact-me.md";
+import BaseHead from "@layouts/BaseHead.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import coverImage from "@assets/open_graph_cover.jpg";
+---
+
+<BaseHead
+    title="Silyn - Contact Form"
+    description="A list of Silyn's contact information."
+    og_title="Silyn's Contact Form"
+    og_description="If you wish to contact me, here is how you can do it."
+    og_image={coverImage}
+>
+    <HomeLayout>
+        <div class="in-markdown">
+            <Content />
+        </div>
+    </HomeLayout>
+</BaseHead>
+
+<style>
+    .in-markdown {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 64px 32px 32px 32px;
+    }
+</style>

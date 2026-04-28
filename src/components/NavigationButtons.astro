@@ -1,0 +1,146 @@
+---
+import { Icon } from "astro-icon/components";
+
+const links = [
+    {
+        title: "Discography",
+        icon: "disk",
+        href: "/",
+    },
+    {
+        title: "Curated",
+        icon: "bookmark",
+        href: "/curated",
+    },
+    {
+        title: "License",
+        icon: "certificate",
+        href: "/license",
+    },
+    {
+        title: "Contact",
+        icon: "address-card",
+        href: "/contact",
+    },
+];
+
+const pathname =
+    Astro.url.pathname !== "/" && Astro.url.pathname.endsWith("/")
+        ? Astro.url.pathname.slice(0, -1)
+        : Astro.url.pathname;
+---
+
+<ul>
+    {
+        links.map((link) => (
+            <li class={pathname == link.href ? "active" : ""}>
+                <a href={link.href}>
+                    <div class="text">
+                        <Icon name={link.icon} />
+                        {link.title}
+                    </div>
+                    <hr />
+                </a>
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 2em;
+        align-items: end;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li.active a {
+        pointer-events: none;
+    }
+
+    .text {
+        background-color: var(--color-white);
+        color: var(--color-black);
+        border-radius: 8px 8px 0 0;
+        padding: 0.25em 1em;
+        font-size: 1.25rem;
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+        transition: background-color 0.2s;
+        font-family: var(--font-title);
+        text-wrap: nowrap;
+    }
+
+    a svg {
+        min-width: 1em;
+        min-height: 1em;
+    }
+
+    @keyframes scroll-background {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -120px 0;
+        }
+    }
+
+    li.active .text {
+        background-color: var(--color-primary);
+        background-image: var(--pattern-strips-primary);
+        animation: 8s linear infinite scroll-background;
+    }
+
+    a hr {
+        border: none;
+        height: 4px;
+        background-color: var(--color-primary);
+        background-image: var(--pattern-strips-primary);
+        transition: height 0.2s;
+    }
+
+    a:hover:not(.active) hr {
+        height: 8px;
+    }
+
+    li.active hr {
+        display: none;
+        height: 0px;
+    }
+
+    @media screen and (max-width: 1480px) {
+        ul {
+            width: 100%;
+            justify-content: center;
+            overflow: hidden;
+            gap: 1rem;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        ul {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        li {
+            width: 100%;
+        }
+
+        li:not(:first-child) a div {
+            border-radius: 0;
+        }
+
+        li:has(+ .active) hr,
+        li + .active hr {
+            display: none;
+        }
+    }
+</style>

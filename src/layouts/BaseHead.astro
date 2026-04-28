@@ -1,0 +1,82 @@
+---
+import "@styles/reset.css";
+import "@styles/constants.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
+import { getImage } from "astro:assets";
+
+export interface Props {
+    /** The title of the page. */
+    title: string;
+
+    /** A one to two sentences description of the website. Used by search engines. */
+    description?: string;
+
+    /**
+     * The title of the page, as specified in the Open Graph metadata. If not specified, the page
+     * title is used.
+     */
+    og_title?: string;
+
+    /**
+     * The description of the page, as specified in the Open Graph metadata. If not specified, the
+     * page description is used.
+     */
+    og_description?: string;
+
+    /**
+     * The image that should be displayed when the page is shared on social media. If not specified,
+     * no image is displayed.
+     */
+    og_image?: ImageMetadata;
+}
+
+const { title, description, og_title, og_description, og_image } = Astro.props;
+const coverImage = og_image
+    ? await getImage({ src: og_image, width: 1200 })
+    : null;
+---
+
+<html lang="en">
+    <head>
+        <!-- Basic meta tags. -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Page identity. -->
+        <link rel="icon" type="image/png" href="/.static/favicon.png" />
+        <title>{title}</title>
+
+        <!-- Open Graph & Socials -->
+        <meta property="twitter:title" content={og_title || title} />
+        <meta property="og:title" content={og_title || title} />
+        <meta
+            property="twitter:description"
+            ,
+            content={og_description || description || ""}
+        />
+        <meta
+            property="og:description"
+            content={og_description || description || ""}
+        />
+        <meta property="description" content={description || ""} />
+        {
+            coverImage ? (
+                <meta property="twitter:image" content={coverImage.src}>
+                <meta property="og:image" content={coverImage.src} />
+            ) : null
+        }
+        <meta property="og:site_name" , content={Astro.site} />
+        <meta property="og:url" content={Astro.url} />
+        <meta
+            property="twitter:card"
+            content={og_image ? "summary_large_image" : "summary"}
+        />
+    </head>
+    <body>
+        <SpeedInsights />
+        <Analytics />
+        <slot />
+    </body>
+</html>

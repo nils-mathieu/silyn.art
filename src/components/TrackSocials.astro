@@ -1,0 +1,94 @@
+---
+import { Icon } from "astro-icon/components";
+import { logoToColor } from "@lib/utils";
+
+interface Props {
+    links: Record<string, string | undefined>;
+}
+
+const { links } = Astro.props;
+
+const socials = [
+    {
+        key: "bandcamp",
+        icon: "bandcamp",
+    },
+    {
+        key: "tidal",
+        icon: "tidal",
+    },
+    {
+        key: "spotify",
+        icon: "spotify",
+    },
+    {
+        key: "appleMusic",
+        icon: "applemusic",
+    },
+    {
+        key: "amazonMusic",
+        icon: "amazon",
+    },
+    {
+        key: "deezer",
+        icon: "deezer",
+    },
+    {
+        key: "youtubeMusic",
+        icon: "youtubemusic",
+    },
+    {
+        key: "soundcloud",
+        icon: "soundcloud",
+    },
+];
+---
+
+<ul class="links">
+    {
+        socials
+            .filter((s) => !!links[s.key])
+            .map((s) => (
+                <li>
+                    <a
+                        href={links[s.key]}
+                        target="_blank"
+                        style={`--social-hover-color: ${logoToColor(s.icon)};`}
+                        aria-label={`Listen on ${s.key}`}
+                    >
+                        <Icon name={s.icon} />
+                    </a>
+                </li>
+            ))
+    }
+</ul>
+
+<style>
+    .links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    .links li {
+        display: inline-block;
+    }
+
+    .links a {
+        color: var(--color-black);
+        transition: color 0.2s;
+    }
+
+    .links a:hover {
+        color: var(--social-hover-color);
+    }
+
+    @media screen and (max-width: 1300px) {
+        .links {
+            margin-top: 1.5rem;
+        }
+    }
+</style>

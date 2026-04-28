@@ -1,0 +1,51 @@
+---
+import { cropString } from "@lib/utils.ts";
+import { getImage } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    track: CollectionEntry<"tracks">;
+}
+
+const { track } = Astro.props;
+
+const coverImage = await getImage({
+    src: track!.data.coverImage,
+    width: 250,
+});
+---
+
+<a
+    href={`/listen/${track.id}`}
+    aria-label={`Listen to '${track!.data.title}'`}
+    class="track-box-card"
+    style={`background-image: url('${coverImage.src}')`}
+>
+    <div class="title">{cropString(track!.data.title, 20)}</div>
+</a>
+
+<style>
+    .track-box-card {
+        aspect-ratio: 1;
+        border-radius: 16px;
+        background-position: center;
+        background-size: cover;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s;
+        transform-style: preserve-3d;
+    }
+
+    .title {
+        z-index: 1;
+        color: var(--color-white);
+        padding: 0.5rem 1rem 0.8rem 1rem;
+        position: relative;
+        font-size: 1.2rem;
+        text-wrap: nowrap;
+        font-weight: normal;
+        text-align: center;
+        background-color: rgba(var(--color-black-rgb), 0.95);
+        border-radius: 0 0 100% 100%;
+    }
+</style>

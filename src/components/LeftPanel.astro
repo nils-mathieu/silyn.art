@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import FollowMeSection from "./FollowMeSection.astro";
+import pictureFiller from "@assets/picture-filler.png";
+---
+
+<div class="container">
+    <h1>Silyn</h1>
+
+    <p class="introduction">
+        Hi! I'm Nils (also known as Silyn). Glad you're interested in my stuff!
+        Feel free to look around. Hopefully it's not as disorganized as my room
+        👀
+    </p>
+
+    <div class="image-container">
+        <Image
+            src={pictureFiller}
+            alt="FM 172 Cover Art"
+            widths={[500, 800]}
+            loading="eager"
+        />
+    </div>
+    <hr />
+
+    <FollowMeSection />
+</div>
+
+<style>
+    .container {
+        grid-area: left;
+        height: 100%;
+        width: 100%;
+        background-color: var(--color-white);
+        color: var(--color-black);
+        border-radius: 16px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-family: var(--font-kumar-one);
+        color: var(--color-primary);
+        font-weight: normal;
+        font-size: 150px;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    p {
+        padding: 100px 32px 16px 32px;
+    }
+
+    .image-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        height: 0px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .image-container-overflowed::after {
+        content: "";
+        position: absolute;
+        background-image: linear-gradient(
+            to bottom,
+            var(--color-white) 0,
+            transparent 400px
+        );
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-container img {
+        height: auto;
+        width: 100%;
+    }
+
+    hr {
+        height: 16px;
+        border: none;
+        background-color: var(--color-primary);
+        background-image: var(--pattern-strips-primary);
+    }
+
+    @media screen and (max-width: 1480px) {
+        .image-container {
+            height: 50lvh;
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        h1 {
+            font-size: 100px;
+        }
+    }
+</style>
+
+<script>
+    const OVERFLOWED_CLASS = "image-container-overflowed";
+    const imageContainers = document.querySelectorAll(".image-container");
+
+    for (const imageContainer of imageContainers) {
+        const imageContainerDiv = imageContainer as HTMLDivElement;
+        const innerImage = imageContainerDiv.children[0] as HTMLImageElement;
+
+        const updateClass = () => {
+            const containerHeight = imageContainerDiv.clientHeight;
+            const imageHeight = innerImage.clientHeight;
+
+            if (containerHeight < imageHeight) {
+                imageContainerDiv.classList.add(OVERFLOWED_CLASS);
+            } else {
+                imageContainerDiv.classList.remove(OVERFLOWED_CLASS);
+            }
+        };
+
+        window.addEventListener("resize", updateClass);
+        updateClass();
+    }
+</script>

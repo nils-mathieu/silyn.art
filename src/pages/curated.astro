@@ -1,0 +1,107 @@
+---
+import CuratedBox from "@components/CuratedBox.astro";
+import HonorableMention from "@components/HonorableMention.astro";
+import BaseHead from "@layouts/BaseHead.astro";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import { getCollection } from "astro:content";
+import coverImage from "@assets/open_graph_cover.jpg";
+
+function shuffle<T>(array: T[]) {
+    let currentIndex = array.length;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+        // Pick a remaining element...
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex],
+            array[currentIndex],
+        ];
+    }
+}
+
+const curatedList = await getCollection("curated");
+shuffle(curatedList);
+
+const mainMentions = curatedList.filter((c) => c.body && c.body.trim() !== "");
+const honorableMentions = curatedList.filter((c) => !c.body || c.body.trim() === "");
+---
+
+<BaseHead
+    title="Silyn - Curated Artists"
+    description="A list of artists that Silyn listens to on a regular basis."
+    og_title="Silyn's Curated Artists"
+    og_description="A short list of the artists that I listen to on a regular basis. Think of it as me fanboying over the people I look up to x)"
+    og_image={coverImage}
+>
+    <HomeLayout>
+        <main>
+            <div class="margin">
+                <p>
+                    The following is a little list of artists I listen to on a
+                    regular basis. You can think of it as me fanboying over the
+                    people I look up to.
+                </p>
+                <p>
+                    This is obviously <i>not</i> a list of The Best Artists Of All
+                    Times™ or anything like that. It's a collection of my personal
+                    favorites (and not even exhaustive at that). I will keep adding
+                    to it as I discover more artists. It's in no particular order
+                    (it's randomized every time I update the website).
+                </p>
+            </div>
+
+            <div class="list">
+                {mainMentions.map((c) => <CuratedBox curated={c} />)}
+            </div>
+
+            <div class="margin">
+                <h2>Honorable Mentions</h2>
+
+                <p>
+                    For the people that I either have nothing to say about other
+                    than I love their music, or I'm too lazy to write a
+                    paragraph about them right now.
+                </p>
+            </div>
+
+            <div class="honorable-mentions">
+                {honorableMentions.map((c) => <HonorableMention curated={c} />)}
+            </div>
+        </main>
+    </HomeLayout>
+</BaseHead>
+
+<style>
+    .margin {
+        padding: 64px 32px 64px 32px;
+    }
+
+    p {
+        max-width: 800px;
+        margin: 1em auto;
+        line-height: 1.5em;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .list {
+        padding: 0 32px;
+        columns: 40rem auto;
+    }
+
+    .honorable-mentions {
+        padding: 0 32px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 64px;
+    }
+</style>

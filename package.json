@@ -1,0 +1,24 @@
+{
+  "name": "silyn.art",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@fontsource/exo-2": "^5.2.8",
+    "@fontsource/kumar-one": "^5.2.8",
+    "@fontsource/nova-square": "^5.2.8",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "astro": "^6.1.9",
+    "astro-icon": "^1.1.5",
+    "sharp": "^0.34.5",
+    "typescript": "^6.0.3"
+  }
+}
