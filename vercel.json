@@ -1,7 +1,0 @@
-{
-  "installCommand": "bun update && bun install",
-  "buildCommand": "bun run build",
-  "engines": {
-    "node": "22.x"
-  }
-}
