@@ -1,0 +1,6 @@
+{
+  "installCommand": "git lfs install && git lfs pull && bun install",
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
+  "framework": "astro"
+}
