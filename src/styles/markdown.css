@@ -24,6 +24,13 @@
     margin: 0 auto;
 }
 
+.in-markdown iframe {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+
 .in-markdown h1 {
     text-align: center;
     margin: 1em;
