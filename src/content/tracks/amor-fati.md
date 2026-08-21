@@ -17,6 +17,7 @@ links:
   amazonMusic: https://amazon.fr/music/player/albums/B0GVC5DS7V?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_FbK3xVfAe8s0vuvaSZJrSo7wu&trackAsin=B0GVC2T93V
   deezer: https://link.deezer.com/s/337gZy6DFMzTZ3crADEv0
   newgrounds: https://www.newgrounds.com/audio/listen/1439494
+  bandcamp: https://silyn.bandcamp.com/track/amor-fati
 ---
 
 > I want to learn more and more to see as beautiful what is necessary in things;
